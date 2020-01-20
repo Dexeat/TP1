@@ -19,7 +19,21 @@ void clrscr()
     system("@cls||clear");
 }
 
+int allie(int lower, int upper,int count){
+	return genRandoms(int lower, int upper,int count);
+}
 
+int allie(int lower, int upper,int count){
+	return genRandoms(int lower, int upper,int count);
+}
+
+int allie(int lower, int upper,int count){
+	return genRandoms(int lower, int upper,int count);
+}
+
+int allie(int lower, int upper,int count){
+	return genRandoms(int lower, int upper,int count);
+}
 
 int tourPlayer(int pvM,int pvJ,int pmJ){
 	int choix;
@@ -54,10 +68,9 @@ int tourPlayer(int pvM,int pvJ,int pmJ){
 
 }
 
-
 int tourMonstre(int pvM,int pvJ,int lower, int upper,int count){
 	int choix;
-	printf("Tour du montre!\n");
+	printf("Tour du monstre!\n");
 	choix = genRandoms(lower, upper, count);
 	return choix;
 
@@ -114,7 +127,7 @@ int main(void)
 		{
 			clrscr();
 			defOn = 1;
-			printf("vous vous defendez ! vous reduisez vos degats de 75% !\n");
+			printf("Vous vous defendez ! Vous reduisez vos degats de 75% !\n");
 			
 		}
 		if (tour == 3)
@@ -122,14 +135,14 @@ int main(void)
 			clrscr();
 			pmJoueur -=7;
 			pvMonstre -= 10;
-			printf("Vous lancez une boule de feu ! \n Vous perdez 7PM ! il vous reste %dPM\n Elle inflige 10 points de degats au Montre !\n il lui reste %dPV\n",pmJoueur,pvMonstre);
+			printf("Vous lancez une boule de feu ! \n Vous perdez 7PM ! Il vous reste %dPM\n Elle inflige 10 points de degats au Montre !\n Il lui reste %dPV\n",pmJoueur,pvMonstre);
 			
 		}
 		if (tour == 4)
 		{
 			clrscr();
 			bleedL = 0;
-			printf("vous n'etes plus empoisonne!\n" );
+			printf("Vous n'etes plus empoisonne!\n" );
 		}
 
 
@@ -140,28 +153,46 @@ int main(void)
 			if (defOn == 1)
 			{
 				pvJoueur--;
-				printf("Le montre vous attaque !, grace a votre defence vous perdez 1PV\nIl vous reste %dPV\n",pvJoueur);
+				printf("Le monstre vous attaque !, Grace a votre defence vous perdez 1PV\nIl vous reste %dPV\n",pvJoueur);
 			}
 			else{
 				pvJoueur-=4;
-				printf("Le montre vous attaque !\nVous perdez 4PV !\nIl vous reste %dPV\n",pvJoueur);
+				printf("Le monstre vous attaque !\nVous perdez 4PV !\nIl vous reste %dPV\n",pvJoueur);
 			}
 			
 		}
 		if (tourM == 2)
 		{
 			defOnM = 1;
-			printf("Le monstre se defend ! il reduit ses degats de 75% !\n");
+			printf("Le monstre se defend ! Il reduit ses degats de 75% !\n");
 		}
 		if (tourM == 3)
 		{
 			bleedL++;
-			printf("Le montre vous empoisonne !, Vous devez vous gerir ou vous perderez %d par tour !\n",bleedL );
+			printf("Le monstre vous empoisonne !, Vous devez vous guerir ou vous perdrez %d par tour !\n",bleedL );
 		}
 		printf("\n");
 
 	}
 
-	
+	choix=allie(lower,upper,count);
+	if (choix==1)
+	{
+		printf("Votre allie a attaque le monstre");
+		pvMonstre-=4;
+	}
+	if (choix==2){
+		printf("Votre allie a attaque le monstre");
+		pvMonstre-=4;
+	}	
+	if (choix==3){
+		printf("Votre allie a attaque le monstre");
+		pvMonstre-=4;
+		
+		}	
+	if (choix==4){
+		printf("Votre allie a attaque le monstre");
+		pvMonstre-=4;
+	}	
 	return 0;
 }
