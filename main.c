@@ -2,6 +2,14 @@
 #include <stdlib.h> 
 #include <time.h>
 
+struct Monstre
+{
+	int pv;
+	int att;
+	int attsort;
+};
+
+typedef struct Monstre monstre;
 
 
 
@@ -79,6 +87,14 @@ int main(void)
 	int defOnM = 0;
 	int bleedL = 0;
 	srand(time(0));
+
+	monstre demon_inferieur={50,4,6};
+	monstre demon_superieur={100,10,16};
+	monstre roi_des_slime={500,2,8000};
+	monstre goblin={15,5,5};
+	monstre dragon={5000,50,90};
+
+	monstre tableMonstre[5]= (demon_inferieur,demon_superieur,roi_des_slime,goblin,dragon);
 	
 	while(game){
 		defOn = 0;
