@@ -13,6 +13,8 @@ typedef struct Monstre monstre;
 
 
 
+
+
 int genRandoms(int lower, int upper,int count){ 
     int i; 
     for (i = 0; i < count; i++) { 
@@ -21,6 +23,9 @@ int genRandoms(int lower, int upper,int count){
         return num; 
     } 
 } 
+
+monstre geneCombat(monstre table[5],int lower, int upper,int count){return table[genRandoms(lower,upper,count)];}
+
 
 void clrscr()
 {
@@ -31,7 +36,7 @@ void clrscr()
 
 int tourPlayer(int pvM,int pvJ,int pmJ){
 	int choix;
-
+	
 	printf("Vous avez %d PV et %d PM, \nLe monstre a %d PV\n",pvJ,pmJ,pvM );
 	printf("Que voulez vous faire ? \nAttaque:1 Defence:2 Competence:3 Antidote:4\n");
 	scanf("%d",&choix);
@@ -88,14 +93,25 @@ int main(void)
 	int bleedL = 0;
 	srand(time(0));
 
+	//creation des monstre
 	monstre demon_inferieur={50,4,6};
 	monstre demon_superieur={100,10,16};
 	monstre roi_des_slime={500,2,8000};
 	monstre goblin={15,5,5};
 	monstre dragon={5000,50,90};
 
-	monstre tableMonstre[5]= (demon_inferieur,demon_superieur,roi_des_slime,goblin,dragon);
-	
+	monstre tableMonstre[5]= {demon_inferieur,demon_superieur,roi_des_slime,goblin,dragon};
+
+	monstre combat[3];
+
+	for (int i = 0; i < 3; i++)
+	{
+		combat[i] = geneCombat(tableMonstre,0,4,1);
+		printf("PV:%d ATT:%d ATTS:%d\n", combat[i].pv,combat[i].att,combat[i].attsort);
+	}
+	//operateur ternaire
+
+	/*
 	while(game){
 		defOn = 0;
 		pmJoueur++;
@@ -177,7 +193,7 @@ int main(void)
 		printf("\n");
 
 	}
-
+	*/
 	
 	return 0;
 }
